@@ -23,7 +23,8 @@ public class EmailService {
                 .field("subject", "Hello From Students")
 //                .field("text", "Testing Students")
 //                .field("html","<html><a href='http://stackoverflow.com'>HTML version of the body</a></html>")
-                .field("html",html)
+//                .field("html",html)
+                .field("html",billinghtml)
                 .asJson();
 //        return request.getBody();
     }
@@ -104,5 +105,93 @@ public class EmailService {
             "</body>\n" +
             "</html>";
 
-
+String billinghtml ="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
+        "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
+        "<head>\n" +
+        "<meta name=\"viewport\" content=\"width=device-width\" />\n" +
+        "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n" +
+        "<title>Billing e.g. invoices and receipts</title>\n" +
+        "<link href=\"styles.css\" media=\"all\" rel=\"stylesheet\" type=\"text/css\" />\n" +
+        "</head>\n" +
+        "\n" +
+        "<body itemscope itemtype=\"http://schema.org/EmailMessage\">\n" +
+        "\n" +
+        "<table class=\"body-wrap\">\n" +
+        "\t<tr>\n" +
+        "\t\t<td></td>\n" +
+        "\t\t<td class=\"container\" width=\"600\">\n" +
+        "\t\t\t<div class=\"content\">\n" +
+        "\t\t\t\t<table class=\"main\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n" +
+        "\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t<td class=\"content-wrap aligncenter\">\n" +
+        "\t\t\t\t\t\t\t<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">\n" +
+        "\t\t\t\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t\t\t\t<td class=\"content-block\">\n" +
+        "\t\t\t\t\t\t\t\t\t\t<h1 class=\"aligncenter\">$33.98 Paid</h1>\n" +
+        "\t\t\t\t\t\t\t\t\t</td>\n" +
+        "\t\t\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t\t\t\t<td class=\"content-block\">\n" +
+        "\t\t\t\t\t\t\t\t\t\t<h2 class=\"aligncenter\">Thanks for using Acme Inc.</h2>\n" +
+        "\t\t\t\t\t\t\t\t\t</td>\n" +
+        "\t\t\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t\t\t\t<td class=\"content-block aligncenter\">\n" +
+        "\t\t\t\t\t\t\t\t\t\t<table class=\"invoice\">\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t<td>Lee Munroe<br>Invoice #12345<br>June 01 2014</td>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t<td>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t<table class=\"invoice-items\" cellpadding=\"0\" cellspacing=\"0\">\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>Service 1</td>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"alignright\">$ 19.99</td>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>Service 2</td>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"alignright\">$ 9.99</td>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>Service 3</td>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"alignright\">$ 4.00</td>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr class=\"total\">\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"alignright\" width=\"80%\">Total</td>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"alignright\">$ 33.98</td>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t\t</table>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t\t</td>\n" +
+        "\t\t\t\t\t\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t\t\t\t\t\t</table>\n" +
+        "\t\t\t\t\t\t\t\t\t</td>\n" +
+        "\t\t\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t\t\t\t<td class=\"content-block aligncenter\">\n" +
+        "\t\t\t\t\t\t\t\t\t\t<a href=\"http://www.mailgun.com\">View in browser</a>\n" +
+        "\t\t\t\t\t\t\t\t\t</td>\n" +
+        "\t\t\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t\t\t\t<td class=\"content-block aligncenter\">\n" +
+        "\t\t\t\t\t\t\t\t\t\tAcme Inc. 123 Van Ness, San Francisco 94102\n" +
+        "\t\t\t\t\t\t\t\t\t</td>\n" +
+        "\t\t\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t\t\t</table>\n" +
+        "\t\t\t\t\t\t</td>\n" +
+        "\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t</table>\n" +
+        "\t\t\t\t<div class=\"footer\">\n" +
+        "\t\t\t\t\t<table width=\"100%\">\n" +
+        "\t\t\t\t\t\t<tr>\n" +
+        "\t\t\t\t\t\t\t<td class=\"aligncenter content-block\">Questions? Email <a href=\"mailto:\">support@acme.inc</a></td>\n" +
+        "\t\t\t\t\t\t</tr>\n" +
+        "\t\t\t\t\t</table>\n" +
+        "\t\t\t\t</div></div>\n" +
+        "\t\t</td>\n" +
+        "\t\t<td></td>\n" +
+        "\t</tr>\n" +
+        "</table>\n" +
+        "\n" +
+        "</body>\n" +
+        "</html>";
 }
