@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<h1>hello sherwin-blog</h1>
+<h1>hello sherwin</h1>
+<div>
+    <div th:each="employee:${employees}">
+        <div>
+            <p th:text="${employee.getId()}"></p>
+            <p th:text="${employee.getFirstName()}"></p>
+            <p th:text="${employee.getLastName()}"></p>
+            <p th:text="${employee.getEmailId()}"></p>
+            <p th:text="${employee.getCreatedBy()}"></p>
+            <p th:datetime="${employee.getCreationDate()}"></p>
+            <p th:text="${employee.getLastModifiedBy()}"></p>
+            <p th:datetime="${employee.getLastModifiedDate()}"></p>
+            <p th:text="${employee.toString()}"></p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
