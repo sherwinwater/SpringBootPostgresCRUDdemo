@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @ToString
-public class Employee {
+public class Employee extends Auditable{
 
 	private long id;
 	@NonNull
