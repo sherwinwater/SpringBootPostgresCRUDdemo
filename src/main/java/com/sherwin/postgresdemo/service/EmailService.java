@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class EmailService {
 
     private static final String YOUR_DOMAIN_NAME = System.getenv("MAILGUN_DOMAIN"); //TODO put your domain name here
-    public static String API_KEY = "MAILGUN_API_KEY"; //TODO put your Private API Key here
+    public static String API_KEY = System.getenv("MAILGUN_API_KEY"); //TODO put your Private API Key here
 
     public void sendSimpleMessage() throws UnirestException {
         HttpResponse<JsonNode> request = Unirest.post("https://api.mailgun.net/v3/"
