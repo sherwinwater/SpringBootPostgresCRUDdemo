@@ -6,6 +6,8 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+
 @Service
 public class EmailService {
 
@@ -20,6 +22,8 @@ public class EmailService {
                 .field("to", "sherwin.water2@gmail.com")//TODO put your emails here
                 .field("subject", "Hello From Students")
                 .field("text", "Testing Students")
+                .field("html", "<html>HTML version </html>")
+                .field("attachment", new File("/welcome.html"))
                 .asJson();
 //        return request.getBody();
     }
