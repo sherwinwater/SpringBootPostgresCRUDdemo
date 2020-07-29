@@ -21,10 +21,22 @@ public class EmailService {
                 .field("from", "Sherwin W sherwin.water@gmail.com")
                 .field("to", "sherwin.water2@gmail.com")//TODO put your emails here
                 .field("subject", "Hello From Students")
-                .field("text", "Testing Students")
-                .field("html", "<html>HTML version </html>")
-                .field("attachment", new File("/welcome.html"))
+//                .field("text", "Testing Students")
+                .field("html","<html><a href='http://stackoverflow.com'>HTML version of the body</a></html>")
                 .asJson();
 //        return request.getBody();
     }
+
+    public static JsonNode createTemplate() throws UnirestException {
+
+        HttpResponse <JsonNode> request = Unirest.post("https://api.mailgun.net/v3/"
+                + YOUR_DOMAIN_NAME + "/templates")
+                .basicAuth("api", API_KEY)
+                .field("name", "template.name")
+                .field("description", "template description")
+                .asJson();
+
+        return request.getBody();
+    }
+
 }
