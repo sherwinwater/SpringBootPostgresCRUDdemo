@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Employee List</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <section class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Employee list</h2>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Created</th>
+                            <th>Modified</th>
+                            <th>Modified by</th>
+                            <th>Created by</th>
+                            <th>View</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="employee : ${employees}">
+                            <td th:text="${employee.id}"></td>
+                            <td th:text="${employee.firstName}"></td>
+                            <td th:text="${employee.lastName}"></td>
+                            <td th:text="${employee.emailId}"></td>
+                            <td th:text="${employee.creationDate}"></td>
+                            <td th:text="${employee.lastModifiedDate}"></td>
+                            <td th:text="${employee.lastModifiedBy}"></td>
+                            <td th:text="${employee.createdBy}"></td>
+                            <td><a href="#" th:href="@{/employee/} + ${employee.id}">View</a></td>
+                            <td><a href="#" th:href="@{/admin/employee/edit/} + ${employee.id}">Edit</a></td>
+                            <td><a href="#" th:href="@{/admin/employee/delete/} + ${employee.id}">Delete</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <a th:href="@{/admin/employee/create}">Add New Employee</a>
+                    <br/><br/>
+
+                    <div th:if="${employees.isEmpty()} == true">
+                        <!--                    <div th:if="${employees.size()} == 0">-->
+                        <p class="alert alert-warning" role="alert">No Employee Found.</p>
+                        <p th:text="${employees.size()}"></p>
+                        <p th:text="${employees.isEmpty()}"></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<th:block th:fragment="optional">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+</th:block>
+
+</body>
+</html>

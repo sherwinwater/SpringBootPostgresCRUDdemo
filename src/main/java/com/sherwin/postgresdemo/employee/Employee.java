@@ -26,18 +26,18 @@ public class Employee extends Auditable {
     @NonNull
     private String emailId;
 
-    @DateTimeFormat(pattern = "yyyy.MM.dd HH:mm:ss")
-    private LocalDateTime Date;
-
-    //    @DateTimeFormat(pattern = "yyyy.MM.dd HH:mm:ss")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    public LocalDateTime getDate() {
-        return Date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        Date = date;
-    }
+//    @DateTimeFormat(pattern = "yyyy.MM.dd HH:mm:ss")
+//    private LocalDateTime Date;
+//
+//    //    @DateTimeFormat(pattern = "yyyy.MM.dd HH:mm:ss")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+//    public LocalDateTime getDate() {
+//        return Date;
+//    }
+//
+//    public void setDate(LocalDateTime date) {
+//        Date = date;
+//    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

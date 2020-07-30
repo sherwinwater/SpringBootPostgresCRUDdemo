@@ -25,4 +25,9 @@ public class HomeController {
     public String layoutPage() {
         return "layout";
     }
+
+//    @GetMapping("/main")
+//    public String mainPage() {
+//        return "layout/main";
+//    }
 }

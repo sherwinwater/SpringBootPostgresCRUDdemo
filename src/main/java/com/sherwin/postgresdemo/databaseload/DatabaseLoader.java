@@ -19,7 +19,17 @@ public class DatabaseLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Employee one = new Employee("sam","s","sam@sam.com");
-        one.setDate(LocalDateTime.now());
+        Employee two = new Employee("jack","jack","jakc@sam.com");
+        Employee three = new Employee("tom","tomes","tom@sam.com");
+        Employee four = new Employee("andy","s","andy@sam.com");
+        Employee five = new Employee("joe","s","joe@sam.com");
+        Employee six = new Employee("thomas","s","tomas@sam.com");
+//        one.setDate(LocalDateTime.now());
         employeeService.save(one);
+        employeeService.save(two);
+        employeeService.save(three);
+        employeeService.save(four);
+        employeeService.save(five);
+        employeeService.save(six);
     }
 }
