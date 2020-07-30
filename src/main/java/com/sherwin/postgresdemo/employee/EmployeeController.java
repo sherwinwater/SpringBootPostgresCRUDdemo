@@ -13,10 +13,10 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping("/")
+    @GetMapping("/employees")
     public String home(Model model){
         List<Employee> employees = employeeService.findAll();
         model.addAttribute("employees",employees);
-        return "index";
+        return "employees";
     }
 }

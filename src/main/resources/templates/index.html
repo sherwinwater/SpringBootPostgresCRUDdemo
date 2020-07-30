@@ -1,28 +1,67 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Welcome to Our Site</title>
 </head>
 <body>
-<h1>hello sherwin</h1>
-<div>
-    <div th:each="employee:${employees}">
-        <div>
-            <p th:text="${employee.getId()}"></p>
-            <p th:text="${employee.getFirstName()}"></p>
-            <p th:text="${employee.getLastName()}"></p>
-            <p th:text="${employee.getEmailId()}"></p>
-            <p th:text="${employee.getCreatedBy()}"></p>
-            <time th:text="${employee.getCreationDate()}"
-                  th:datetime="${employee.getCreationDate()}"></time>
-            <p>getDate</p>
-            <time th:text="${employee.getDate()}"></time>
-            <p th:text="${employee.getLastModifiedBy()}"></p>
-            <time th:datetime="${employee.getLastModifiedDate()}"></time>
-            <p th:text="${employee.toString()}"></p>
+
+<div layout:fragment="content">
+    <section class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Welcome to Our Site</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur [....]</p>
+
+                </div>
+            </div>
         </div>
-    </div>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
 </div>
+
 </body>
 </html>
