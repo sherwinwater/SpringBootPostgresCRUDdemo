@@ -1,7 +1,6 @@
-package com.sherwin.postgresdemo.controller;
+package com.sherwin.postgresdemo.email;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.sherwin.postgresdemo.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

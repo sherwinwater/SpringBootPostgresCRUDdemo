@@ -1,7 +1,7 @@
-package com.sherwin.postgresdemo.service;
+package com.sherwin.postgresdemo.employee;
 
-import com.sherwin.postgresdemo.model.Employee;
-import com.sherwin.postgresdemo.repository.EmployeeRepository;
+import com.sherwin.postgresdemo.employee.Employee;
+import com.sherwin.postgresdemo.employee.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

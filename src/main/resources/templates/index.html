@@ -14,9 +14,12 @@
             <p th:text="${employee.getLastName()}"></p>
             <p th:text="${employee.getEmailId()}"></p>
             <p th:text="${employee.getCreatedBy()}"></p>
-            <p th:datetime="${employee.getCreationDate()}"></p>
+            <time th:text="${employee.getCreationDate()}"
+                  th:datetime="${employee.getCreationDate()}"></time>
+            <p>getDate</p>
+            <time th:text="${employee.getDate()}"></time>
             <p th:text="${employee.getLastModifiedBy()}"></p>
-            <p th:datetime="${employee.getLastModifiedDate()}"></p>
+            <time th:datetime="${employee.getLastModifiedDate()}"></time>
             <p th:text="${employee.toString()}"></p>
         </div>
     </div>

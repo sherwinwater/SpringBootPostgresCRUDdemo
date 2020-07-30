@@ -1,7 +1,5 @@
-package com.sherwin.postgresdemo.controller;
+package com.sherwin.postgresdemo.employee;
 
-import com.sherwin.postgresdemo.model.Employee;
-import com.sherwin.postgresdemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

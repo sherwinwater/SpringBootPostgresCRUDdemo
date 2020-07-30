@@ -1,6 +1,6 @@
-package com.sherwin.postgresdemo.repository;
+package com.sherwin.postgresdemo.employee;
 
-import com.sherwin.postgresdemo.model.Employee;
+import com.sherwin.postgresdemo.employee.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.sherwin.postgresdemo.service;
+package com.sherwin.postgresdemo.email;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
