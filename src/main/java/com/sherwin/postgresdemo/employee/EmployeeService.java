@@ -22,4 +22,9 @@ public class EmployeeService {
     }
     public Employee get(Long id){return employeeRepository.findEmployeeById(id);}
     public void delete(Long id){employeeRepository.deleteById(id);}
+
+    public List<Employee> search(String content) {
+        return employeeRepository.findByFirstNameOrLastNameOrEmailIdContaining(content,content,content);
+    }
+
 }

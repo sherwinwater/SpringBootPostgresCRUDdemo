@@ -14,7 +14,7 @@ public class EmailService {
     private static final String YOUR_DOMAIN_NAME = System.getenv("MAILGUN_DOMAIN"); //TODO put your domain name here
     public static String API_KEY = System.getenv("MAILGUN_API_KEY"); //TODO put your Private API Key here
 
-    public void sendSimpleMessage() throws UnirestException {
+    public JsonNode sendSimpleMessage() throws UnirestException {
         HttpResponse<JsonNode> request = Unirest.post("https://api.mailgun.net/v3/"
                 + YOUR_DOMAIN_NAME + "/messages")
                 .basicAuth("api", API_KEY)
@@ -26,7 +26,7 @@ public class EmailService {
 //                .field("html",html)
                 .field("html",billinghtml)
                 .asJson();
-//        return request.getBody();
+        return request.getBody();
     }
 
     public static JsonNode createTemplate() throws UnirestException {

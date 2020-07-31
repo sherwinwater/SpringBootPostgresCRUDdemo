@@ -1,8 +1,10 @@
 package com.sherwin.postgresdemo.email;
 
+import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -12,9 +14,10 @@ public class EmailController {
     private EmailService emailService;
 
     @GetMapping("/email")
-    public String sendEmail() {
+    public String sendEmail(Model model) {
         try {
-            emailService.sendSimpleMessage();
+            JsonNode node = emailService.sendSimpleMessage();
+            model.addAttribute("node",node.toString());
         } catch (UnirestException e) {
             e.printStackTrace();
         }
