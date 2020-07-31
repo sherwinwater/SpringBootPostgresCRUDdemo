@@ -1,7 +1,5 @@
 package com.sherwin.postgresdemo.aspect;
 
-import com.oracle.tools.packager.Log;
-import org.apache.logging.log4j.LogManager;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
