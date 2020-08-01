@@ -5,72 +5,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE"></title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        .footer {
+            background-color: #f5f5f5;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <!-- Main Navigation -->
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #9370DB;">
-    <form class="form-inline" th:action="@{/search}" th:method="post">
-        <input class="form-control mr-sm-2" name="searchcontent" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-light btn-sm my-2 my-sm-0" type="submit">Search</button>
-    </form>
-
-    <a class="navbar-brand" th:href="@{/}">Postgres DB CRUD Demo </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
-            aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Portfolio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-<!--    <form class="form-inline"  th:onsubmit="search(); return false">-->
-<!--        <input class="form-control mr-sm-2" name="ajxsearchcontent" id="ajxsearchcontent" type="ajxsearch" placeholder="Ajx Search" aria-label="Search">-->
-<!--        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-<!--    </form>-->
-
-    <div class="collapse navbar-collapse" id="navbar" >
-        <ul class="navbar-nav ml-auto" >
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{/}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/contact}">Contact Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/about}">About Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/employees}">Employee</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/email}">Send Email</a>
-            </li>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto" id="navbaritems">
+            <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Photo</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/about}">News</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/employees}">Employee</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/email}">Email</a></li>
+        </ul>
+        <form class="form-inline mt-0 mt-md-0" th:action="@{/search}" th:method="post">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
+                   name="searchcontent">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </form>
+        <ul class="navbar-nav ml-auto ">
+            <li><a th:href="@{/signup}"class="nav-link"><i class="fas fa-user-plus"></i>Sign Up</a></li>
+            <li><a th:href="@{/login}" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
         </ul>
     </div>
 </nav>
 
 <!-- Content Section -->
 <section layout:fragment="content">
-    <p>This is filled by the content template.</p>
-
 </section>
 
 <!-- Footer -->
-<footer class="container py-5">
-    <div class="row">
-        <div class="col-md-12">
-            <span class="text-muted" th:text="${#dates.year(#dates.createNow())}"></span>
-            <p class="text-muted">Sherwin Inc. All rights reserved.</p>
-        </div>
-    </div>
+<!--<footer class="container py-5">-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-12 text-center">-->
+<!--            <span class="text-muted" th:text="${#dates.year(#dates.createNow())}"></span>-->
+<!--            <span class="text-muted">Sherwin Inc. All rights reserved.</span>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</footer>-->
+
+<footer class="footer mt-auto py-3 text-center">
+    <div class="container">
+        <span class="text-muted" th:text="${#dates.year(#dates.createNow())}"></span>
+        <span class="text-muted">Sherwin Inc. All rights reserved.</span>    </div>
 </footer>
 
 <div>
     <p id="data-ajxsearch"></p>
 </div>
 <!-- Optional Section -->
-<th:block layout:fragment="optional" />
+<th:block layout:fragment="optional"/>
+
+<script>
+    var navitems = document.getElementById("navbaritems").getElementsByClassName("nav-item");
+    for (let i = 0; i < navitems.length; i++) {
+        navitems[i].addEventListener("click", function () {
+            // var current = document.getElementsByClassName("nav-item active");
+            // if (current.length > 0) {
+            //     current[0].className = current[0].className.replace("nav-item active", "nav-item");
+            // }
+            this.className = "nav-item active";
+        });
+    }
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
 
 <!--<script>-->
 <!--    const ajxsearch = document.getElementById("ajxsearchcontent");-->
@@ -103,5 +146,3 @@
 <!--    }-->
 
 <!--</script>-->
-</body>
-</html>
