@@ -60,6 +60,8 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                 <i class="fa fa-search" aria-hidden="true"></i>
             </button>
+        <input class="form-control my-2 mr-sm-2" type="text" placeholder="QuickSearch" aria-label="Search"
+               name="ajaxsearch" id="ajaxsearch">
         </form>
         <ul class="navbar-nav ml-auto ">
             <li><a th:href="@{/signup}" class="nav-link"><i class="fas fa-user-plus"></i>Sign Up</a></li>
@@ -69,32 +71,15 @@
 </nav>
 
 <!-- Content Section -->
-<section layout:fragment="content">
+<section layout:fragment="content" id="data">
 </section>
-
-<!-- Footer -->
-<!--<footer class="container py-5">-->
-<!--    <div class="row">-->
-<!--        <div class="col-md-12 text-center">-->
-<!--            <span class="text-muted" th:text="${#dates.year(#dates.createNow())}"></span>-->
-<!--            <span class="text-muted">Sherwin Inc. All rights reserved.</span>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</footer>-->
 
 <footer class="footer mt-auto py-3 text-center">
     <div class="container">
         <span class="text-muted" th:text="${#dates.year(#dates.createNow())}"></span>
         <span class="text-muted">Sherwin Inc. All rights reserved.</span></div>
-
-    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
-           name="ajaxsearch" id="ajaxsearch">
-    <!--           name="ajaxsearch" id="ajaxsearch" onkeyup="ajaxsearch()">-->
 </footer>
 
-<div>
-    <div id="data"></div>
-</div>
 <!-- Optional Section -->
 <th:block layout:fragment="optional"/>
 
