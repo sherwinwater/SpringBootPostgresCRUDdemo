@@ -10,6 +10,12 @@
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            crossorigin="anonymous"></script>
+
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -56,7 +62,7 @@
             </button>
         </form>
         <ul class="navbar-nav ml-auto ">
-            <li><a th:href="@{/signup}"class="nav-link"><i class="fas fa-user-plus"></i>Sign Up</a></li>
+            <li><a th:href="@{/signup}" class="nav-link"><i class="fas fa-user-plus"></i>Sign Up</a></li>
             <li><a th:href="@{/login}" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a></li>
         </ul>
     </div>
@@ -79,16 +85,21 @@
 <footer class="footer mt-auto py-3 text-center">
     <div class="container">
         <span class="text-muted" th:text="${#dates.year(#dates.createNow())}"></span>
-        <span class="text-muted">Sherwin Inc. All rights reserved.</span>    </div>
+        <span class="text-muted">Sherwin Inc. All rights reserved.</span></div>
+
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"
+           name="ajaxsearch" id="ajaxsearch">
+    <!--           name="ajaxsearch" id="ajaxsearch" onkeyup="ajaxsearch()">-->
 </footer>
 
 <div>
-    <p id="data-ajxsearch"></p>
+    <div id="data"></div>
 </div>
 <!-- Optional Section -->
 <th:block layout:fragment="optional"/>
 
 <script>
+    /*
     var navitems = document.getElementById("navbaritems").getElementsByClassName("nav-item");
     for (let i = 0; i < navitems.length; i++) {
         navitems[i].addEventListener("click", function () {
@@ -99,12 +110,45 @@
             this.className = "nav-item active";
         });
     }
+    */
+
+    $(document).ready(function () {
+        $("#ajaxsearch").keyup(function () {
+            console.log("d");
+            let searchvalue = $(this).val();
+            $("#data").load("/ajaxsearch3/"+searchvalue);
+        });
+    });
+    /*
+    async function ajaxsearch() {
+        console.log("hello");
+        let url = '/ajaxsearch';
+        let url2 = '/ajaxsearch2';
+        let url3 = '/ajaxsearch3';
+        let d = document.getElementById("data-ajxsearch");
+        // fetch
+        // fetch(url)
+        //     .then(response => response.json())
+        //     .then(data => {d.innerHTML+=`<p>${data[0].id}</p>
+        //                             <p>${data[0].emailId}</p>
+        //                             <p>${data[0].lastModifiedBy}</p>
+        //                             <p>${data[0].firstName}</p>
+        //                             <p>${data[0].lastName}</p>`;
+        //     console.log(data)})
+        //     .catch(err => console.error(err));
+
+        // fetch(url2)
+        //     .then(response => response.json())
+        //     .then(data => {d.innerHTML= data;
+        //     console.log(data)})
+        //     .catch(err => console.error(err));
+
+        $("#data-ajxsearch").html("d");
+    }
+
+     */
 
 </script>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
@@ -136,10 +180,10 @@
 <!--        for(let item of data){-->
 <!--            console.log(item);-->
 <!--            searchdata.innerHTML +=`<p>${item.id}</p>-->
-<!--                                    <p>${item.emailid}</p>-->
+<!--                                    <p>${item.emailId}</p>-->
 <!--                                    <p>${item.lastModifiedBy}</p>-->
-<!--                                    <p>${item.firstname}</p>-->
-<!--                                    <p>${item.lastname}</p>-->
+<!--                                    <p>${item.firstName}</p>-->
+<!--                                    <p>${item.lastName}</p>-->
 <!--`;-->
 <!--        }-->
 

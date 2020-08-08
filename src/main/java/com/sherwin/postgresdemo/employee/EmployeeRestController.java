@@ -26,4 +26,12 @@ public class EmployeeRestController {
 		return  employeeService.search(ajxsearchcontent);
 	}
 
+	@GetMapping("/ajaxsearch")
+	public List<Employee> showEmployee(Model model){
+		List<Employee> results = employeeService.search("");
+		model.addAttribute("employees",results);
+//        return "employee/list :: table-refresh";
+		return results;
+	}
+
 }
