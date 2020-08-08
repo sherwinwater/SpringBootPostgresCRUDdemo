@@ -2,29 +2,35 @@ package com.sherwin.postgresdemo.employee;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sherwin.postgresdemo.config.Auditable;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-//@Table(name = "employees")
 @NoArgsConstructor
 @RequiredArgsConstructor
 @ToString
+@Getter
+@Setter
 public class Employee extends Auditable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @NonNull
     private String firstName;
+
     @NonNull
     private String lastName;
+
     @NonNull
     private String emailId;
+
+    @NonNull
+    private String photoUrl;
 
 //    @DateTimeFormat(pattern = "yyyy.MM.dd HH:mm:ss")
 //    private LocalDateTime Date;
@@ -39,41 +45,40 @@ public class Employee extends Auditable {
 //        Date = date;
 //    }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    @Column(name = "first_name", nullable = false)
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    @Column(name = "last_name", nullable = false)
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    @Column(name = "email_address", nullable = false)
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
+//    public long getId() {
+//        return id;
+//    }
+//
+//    public void setId(long id) {
+//        this.id = id;
+//    }
+//
+//    @Column(name = "first_name", nullable = false)
+//    public String getFirstName() {
+//        return firstName;
+//    }
+//
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//    }
+//
+//    @Column(name = "last_name", nullable = false)
+//    public String getLastName() {
+//        return lastName;
+//    }
+//
+//    public void setLastName(String lastName) {
+//        this.lastName = lastName;
+//    }
+//
+//    @Column(name = "email_address", nullable = false)
+//    public String getEmailId() {
+//        return emailId;
+//    }
+//
+//    public void setEmailId(String emailId) {
+//        this.emailId = emailId;
+//    }
 
 }

@@ -18,12 +18,12 @@ public class DatabaseLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Employee one = new Employee("sam","s","sam@sam.com");
-        Employee two = new Employee("jack","jack","jakc@sam.com");
-        Employee three = new Employee("tom","tomes","tom@sam.com");
-        Employee four = new Employee("andy","s","andy@sam.com");
-        Employee five = new Employee("joe","s","joe@sam.com");
-        Employee six = new Employee("thomas","s","tomas@sam.com");
+        Employee one = new Employee("sam","s","sam@sam.com","images/Apocalypto.png");
+        Employee two = new Employee("jack","jack","jakc@sam.com","images/concussion.png");
+        Employee three = new Employee("tom","tomes","tom@sam.com","images/legendsofthefall.png");
+        Employee four = new Employee("andy","s","andy@sam.com","images/thehuntingground.png");
+        Employee five = new Employee("joe","s","joe@sam.com","images/larry.png");
+        Employee six = new Employee("thomas","s","tomas@sam.com","images/timemachine.png");
 //        one.setDate(LocalDateTime.now());
         employeeService.save(one);
         employeeService.save(two);
