@@ -6,3 +6,5 @@ Heroku Postgresql demo deployment
 3. Postgres DB CURD
 4. Auditing
 5. -dev,-heroku properties
+6. support ajax search
+7. employee with image
