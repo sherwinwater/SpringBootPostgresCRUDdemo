@@ -20,7 +20,6 @@
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
-                            <th>Photo</th>
                             <th>Created</th>
                             <th>Modified</th>
                             <th>Modified by</th>
@@ -36,10 +35,6 @@
                             <td th:text="${employee.firstName}"></td>
                             <td th:text="${employee.lastName}"></td>
                             <td th:text="${employee.emailId}"></td>
-                            <td >
-                                <img th:src="@{${employee.photoUrl}}" alt="photo" width="200" height="250">
-<!--                                <img th:src="@{images/Apocalypto.png}" alt="photo" width="200" height="250">-->
-                            </td>
                             <td th:text="${employee.creationDate}"></td>
                             <td th:text="${employee.lastModifiedDate}"></td>
                             <td th:text="${employee.lastModifiedBy}"></td>
