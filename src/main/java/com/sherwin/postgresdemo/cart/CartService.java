@@ -1,17 +1,23 @@
 package com.sherwin.postgresdemo.cart;
 
+import com.sherwin.postgresdemo.book.Book;
+import com.sherwin.postgresdemo.book.BookService;
 import com.sherwin.postgresdemo.employee.Employee;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class CartService {
+public class CartService{
 
     private final CartRepository cartRepository;
+    private final BookService bookService;
 
-    public CartService(CartRepository cartRepository) {
+    public CartService(CartRepository cartRepository, BookService bookService) {
         this.cartRepository = cartRepository;
+        this.bookService = bookService;
     }
 
     public void save(Cart Cart) {
@@ -26,9 +32,15 @@ public class CartService {
         return cartRepository.findCartByEmployee(employee);
     }
 
-    public void delete(Long id) {
-        cartRepository.deleteById(id);
+    public Cart getByid(Long id ) {
+        return cartRepository.findCartById(id);
     }
 
+    public void delete(Long id, Employee employee) {
+        Cart cart = cartRepository.findCartByEmployee(employee);
+        Book book = bookService.get(id);
+        cart.removeBook(book);
+        cartRepository.save(cart);
+    }
 
 }

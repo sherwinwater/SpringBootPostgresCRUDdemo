@@ -15,23 +15,23 @@ public class BookController {
 
     @GetMapping("/books")
     public String home(Model model){
-        List<Book> Books = bookService.findAll();
-        model.addAttribute("Books",Books);
-        return "Book/list";
+        List<Book> books = bookService.findAll();
+        model.addAttribute("books",books);
+        return "book/list";
     }
 
     @GetMapping("/book/{id}")
     public String viewBook(@PathVariable Long id,Model model){
-        Book Book = bookService.get(id);
-        model.addAttribute("Book",Book);
-        return "Book/view";
+        Book book = bookService.get(id);
+        model.addAttribute("book",book);
+        return "book/view";
     }
 
     @PostMapping("/search/book")
     public String search(@RequestParam("searchcontent") String searchcontent, Model model){
         List<Book> search = bookService.search(searchcontent);
-        model.addAttribute("Books",search);
-        return "Book/list";
+        model.addAttribute("books",search);
+        return "book/list";
     }
 
     @GetMapping("/ajaxsearch2/book")
@@ -43,8 +43,8 @@ public class BookController {
     @GetMapping("/ajaxsearch3/book/{searchcontent}")
     public String showBook2(@PathVariable String searchcontent, Model model){
         List<Book> search = bookService.search(searchcontent);
-        model.addAttribute("Books",search);
-        return "Book/list :: table-refresh";
+        model.addAttribute("books",search);
+        return "book/list :: table-refresh";
     }
 
 }

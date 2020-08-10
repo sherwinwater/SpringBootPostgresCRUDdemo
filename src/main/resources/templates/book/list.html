@@ -7,53 +7,40 @@
 </head>
 <body>
 
-<div layout:fragment="content" >
+<div layout:fragment="content">
     <section class="my-5" th:fragment="table-refresh">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Book list</h2>
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Photo</th>
-                            <th>Price</th>
-                            <th>Add</th>
-                            <th>View</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="Book : ${Books}">
-                            <td th:text="${Book.id}"></td>
-                            <td th:text="${Book.name}"></td>
-                            <td >
-                                <img th:src="@{${Book.photoUrl}}" alt="photo" width="200" height="250">
-<!--                                <img th:src="@{images/Apocalypto.png}" alt="photo" width="200" height="250">-->
-                            </td>
-                            <td th:text="${Book.price}"></td>
-                            <td><a href="#" th:href="@{/cart/add/} + ${Book.id}">Add</a></td>
-                            <td><a href="#" th:href="@{/Book/} + ${Book.id}">View</a></td>
-                            <td><a href="#" th:href="@{/admin/Book/edit/} + ${Book.id}">Edit</a></td>
-                            <td><a href="#" th:href="@{/admin/Book/delete/} + ${Book.id}">Delete</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                    <a th:href="@{/admin/Book/create}">Add New Book</a>
-                    <br/><br/>
-
-                    <div th:if="${Books.isEmpty()} == true">
-                        <!--                    <div th:if="${Books.size()} == 0">-->
-                        <p class="alert alert-warning" role="alert">No Book Found.</p>
-                        <p th:text="${Books.size()}"></p>
-                        <p th:text="${Books.isEmpty()}"></p>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3" th:each="book : ${books}">
+                        <div class="card mb-3 shadow-sm">
+                            <img class="card-img-top" th:src="@{${book.photoUrl}}" alt="photo" width="80%" height="250">
+                            <div class="card-body">
+                                <p class="card-text" th:text="${book.name}">This is a wider card ow content is a little
+                                    bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="#" th:href="@{/cart/add/} + ${book.id}">Add</a>&nbsp;
+                                        <a href="#" th:href="@{/book/} + ${book.id}">View</a>&nbsp;
+                                        <a href="#" th:href="@{/admin/book/edit/} + ${book.id}">Edit</a>&nbsp;
+                                        <a href="#" th:href="@{/admin/book/delete/} + ${book.id}">Delete</a>&nbsp;
+                                    </div>
+                                    <small class="text-muted" th:text="${book.price}">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
+            </div>
+            <a th:href="@{/admin/book/create}">Add New book</a>
+            <br/><br/>
+
+            <div th:if="${books.isEmpty()} == true">
+                <!--                    <div th:if="${books.size()} == 0">-->
+                <p class="alert alert-warning" role="alert">No book Found.</p>
+                <p th:text="${books.size()}"></p>
+                <p th:text="${books.isEmpty()}"></p>
             </div>
         </div>
     </section>

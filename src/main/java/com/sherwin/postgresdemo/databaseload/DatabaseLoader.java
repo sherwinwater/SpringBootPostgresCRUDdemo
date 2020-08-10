@@ -59,7 +59,11 @@ public class DatabaseLoader implements CommandLineRunner {
         Employee employee = employeeService.get(1L);
         Cart cart = new Cart();
         cart.setEmployee(employee);
-        cart.addBook(book1);
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(book1);
+        cart.setBookList(bookList);
+        cart.addBook(book2);
+        book1.setCart(cart);
         cartService.save(cart);
 
     }

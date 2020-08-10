@@ -27,7 +27,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="book : ${cart.bookList}">
+                        <tr th:each="book : ${cart.getBookList()}">
                             <td th:text="${book.id}"></td>
                             <td th:text="${book.name}"></td>
                             <td >
@@ -38,12 +38,12 @@
                             <td><a href="#" th:href="@{/book/add/} + ${book.id}">Add</a></td>
                             <td><a href="#" th:href="@{/book/} + ${book.id}">View</a></td>
                             <td><a href="#" th:href="@{/admin/book/edit/} + ${book.id}">Edit</a></td>
-                            <td><a href="#" th:href="@{/admin/book/delete/} + ${book.id}">Delete</a></td>
+                            <td><a href="#" th:href="@{/cart/delete/} + ${book.id}">Delete</a></td>
                         </tr>
                         </tbody>
                     </table>
 
-                    <a th:href="@{/admin/book/create}">Add New book</a>
+                    <a th:href="@{/books}">Add book</a>
                     <br/><br/>
 
                     <div th:if="${cart.bookList.isEmpty()} == true">
@@ -58,6 +58,9 @@
         </div>
     </section>
 </div>
+
+
+
 
 <th:block th:fragment="optional">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>

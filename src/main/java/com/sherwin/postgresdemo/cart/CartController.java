@@ -23,7 +23,7 @@ public class CartController {
     private BookService bookService;
 
     @GetMapping("/cart")
-    public String home(Model model){
+    public String getList(Model model){
         Employee employee = employeeService.get(1L);
         Cart cart = cartService.get(employee);
         model.addAttribute("cart", cart);
@@ -31,13 +31,19 @@ public class CartController {
     }
 
     @GetMapping("/cart/add/{id}")
-    public String home(@PathVariable long id, Model model){
+    public String addBook(@PathVariable long id){
         Employee employee = employeeService.get(1L);
         Cart cart = cartService.get(employee);
         cart.addBook(bookService.get(id));
-        model.addAttribute("cart", cart);
-//        cartService.save(cart);
-        return "cart/list";
+        cartService.save(cart);
+        return "redirect:/books";
+    }
+
+    @GetMapping("/cart/delete/{id}")
+    public String deleteBook(@PathVariable long id){
+        Employee employee = employeeService.get(1L);
+        cartService.delete(id,employee);
+        return "redirect:/cart";
     }
 
 }

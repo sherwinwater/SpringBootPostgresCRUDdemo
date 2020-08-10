@@ -24,10 +24,15 @@ public class Cart extends Auditable {
     @OneToOne
     private Employee employee;
 
-    @OneToMany(mappedBy = "cart")
-    private List<Book> bookList = new ArrayList<>();
+    @OneToMany(fetch = FetchType.EAGER)
+//    @JoinTable(name = "cart_booklist")
+    private List<Book> bookList;
 
     public void addBook(Book book){
         this.bookList.add(book);
+    }
+
+    public void removeBook(Book book){
+        this.bookList.remove(book);
     }
 }
